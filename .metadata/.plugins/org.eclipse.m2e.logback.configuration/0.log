@@ -1,0 +1,11 @@
+2022-06-29 16:58:35,828 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-06-29 17:04:28,789 [Worker-13: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.consorcio:Proyecto_Web_Playstation:0.0.1-SNAPSHOT @ C:\Users\ADMIN\Desktop\Cibertec Ciclo 6\DESARROLLO DE APLICACIONES WEB I\PROYECTO\PROYECTO FINAL\Proyecto_Web_Playstation\pom.xml.
+2022-06-29 17:04:30,391 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-29 17:04:30,398 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-29 17:04:30,421 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2022-06-29 17:04:30,774 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-29 17:04:30,774 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\ADMIN\Desktop\Cibertec Ciclo 6\DESARROLLO DE APLICACIONES WEB I\PROYECTO\PROYECTO FINAL\Proyecto_Web_Playstation\src\test\resources
+2022-06-29 17:04:32,679 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-29 17:04:32,687 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-29 17:04:32,693 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2022-06-29 17:04:32,801 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
