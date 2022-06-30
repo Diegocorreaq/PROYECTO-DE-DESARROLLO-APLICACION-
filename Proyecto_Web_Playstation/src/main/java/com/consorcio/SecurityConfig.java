@@ -41,14 +41,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		
-.anyRequest().authenticated()
-		
-		.and().formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/intranet")
+		.antMatchers(
+					"/login/**",
+					"/img/**"
+				).permitAll().anyRequest().authenticated()
+		.and().formLogin().loginPage("/login/").permitAll().defaultSuccessUrl("/login/intranet")
 		;
-		/*.antMatchers("/juegos/**").hasRole("ADMIN")
-	
-		.and().formLogin();*/
+		
+		
+
 		
 	}
 	

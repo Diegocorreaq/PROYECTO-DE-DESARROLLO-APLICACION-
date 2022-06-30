@@ -1,189 +1,116 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intranet</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<style type="text/css">
-body {
-  background: #eee;
-}
-.wrapper {
-  margin: 15%;
-}
-.form-signin {
-  max-width: 380px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 5px 40px 50px;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-}
-.form-signin .form-signin-heading, .form-signin .checkbox {
-  margin-bottom: 30px;
-}
-.form-signin input[type="text"], .form-signin input[type="password"] {
-  margin-bottom: 20px;
-}
-.form-signin .form-control {
-  padding: 10px;
-}
-.modal-login {
-		color: #636363;
-		/*width: 350px;*/
-		margin: 25px auto;
-	}
-	.modal-login .modal-content {
-		padding: 0px;
-		border-radius: 5px;
-		border: none;
-	}
-	.modal-login .modal-header {
-		border-bottom: none;
-		position: relative;
-		justify-content: center;
-	}
-	.modal-login h4 {
-		text-align: center;
-		font-size: 26px;
-	}
-	.modal-login  .form-group {
-		position: relative;
-	}
-	.modal-login i {
-		position: absolute;
-		left: 13px;
-		top: 11px;
-		font-size: 18px;
-	}
-	.modal-login .form-control {
-		padding-left: 40px;
-	}
-	.modal-login .form-control:focus {
-		border-color: #428bca;
-	}
-	.modal-login .form-control, .modal-login .btn {
-		min-height: 40px;
-		border-radius: 3px; 
-	}
-	.modal-login .hint-text {
-		text-align: center;
-		padding-top: 10px;
-	}
-	.modal-login .close {
-        position: absolute;
-		top: -5px;
-		right: -5px;
-	}
-	.modal-login .btn {
-		background: #428bca;
-		border: none;
-		line-height: normal;
-		font-weight:bold;
-		width:40%;
-	}
-	.modal-login .btn:hover, .modal-login .btn:focus {
-		background: #428bca;
-	}
-	.modal-login .modal-footer {
-		background: #ecf0f1;
-		border-color: #dee4e7;
-		text-align: center;
-		margin: 0 -20px -20px;
-		border-radius: 5px;
-		font-size: 13px;
-		justify-content: center;
-	}
-	.modal-login .modal-footer a {
-		color: #999;
-	}
-	.trigger-btn {
-		display: inline-block;
-		margin: 100px auto;
-	}
-	
-	.modal-header{
-		margin:0px;
-		color:#fff;
-		background: #428bca;
-		display: flex;
-  		justify-content: center;
-  		
-	}
-	.pie{
-		margin:0px;
-		display: flex;
-  		justify-content: center;
-  		
-	}
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/logopng.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <title>Playstation</title>
 </head>
+<style>body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("/img/fondo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+.container_form{
+    background-color:  #0a1e35;
+    border-radius: 15px;
+    padding: 40px;
+    opacity: 0.8;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: 160px;
+}
+h2{
+    text-align: center;
+    color: white;
+}
+input{
+    display: block;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+    border-bottom: 2px solid white;
+}
+.check{
+    width: 15px;
+    height: 15px;
+    display: inline;
+   
+}
+label{
+    color: white;
+}
+a{
+    color: white;
+    text-decoration: none;
+    margin-left: 120px;
+}
+
+.boton{
+
+    width: 150px;
+    border-radius: 15px;
+    background-color:#048620;
+    color: white;
+    margin-top: 30px;
+    border: none;
+    border-bottom: 4px solid #0b5a1c;
+    margin-left: 145px;
+}
+a:hover{
+    color: #b8b8b8b8;
+}
+label:hover{
+    color: #b8b8b8b8;
+}
+.boton:active{
+    background-color: #0b5a1c;
+    width: 145px;
+}</style>
 <body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container d-flex justify-content-center">
-        <div class="card">
-            <div class="card-header">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/login/">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="/nuevoUsu">Crear Cuenta</a>
-                    </li>
-                    
-                  </ul>
-            </div>
-            <div class="card-body">
-              <form method="POST"  th:action="@{guardar}" >
-              <input type="hidden" id="idCodigo" name="codigo" value="0">
-                <div class="form-group">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" name="nombre" id="nombre" class="form-control"required>
-              </div>
-                <div class="form-group">
-                    <label for="nombreUsuario">Apellidos</label>
-                    <input type="text" name="apellido" id="idapellido" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="nombreUsuario">Nombre Usuario</label>
-                    <input type="text" name="nomusu" id="idnomusu" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="contraseña" id="idcontraseña" class="form-control" required>
-                </div>
-                
-            
-                <div class="form-group">
-                    <button type="submit" id="Guardar" class="btn btn-outline-success btn-block" >
-                        <i class="fas fa-sign-in-alt"></i> Crear Cuenta</button>
-                </div>
+    <div class="container">
+        <div class="container_form">
+            <h2> Crear Cuenta</h2>
+            <img th:src="@{/img/logopng.png}">
+                 <form  method="post" th:action="@{guardar}">
+				 <input type="hidden" id="idCodigo" name="codigo" value="0">
+                <input type="text" name="nombre" placeholder="Nombres" required>
+                <input type="text" name="apellido" placeholder="Apellidos" required>
+                <input type="text" name="nomusu" placeholder="Nombre de Usuario" required>
+                 <input type="password" name="contraseña" placeholder="Contraseña" required>
+              <br>
+                <input type="submit" class="boton" value="Iniciar">
+
             </form>
-            </div>
+
         </div>
+
     </div>
+    
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

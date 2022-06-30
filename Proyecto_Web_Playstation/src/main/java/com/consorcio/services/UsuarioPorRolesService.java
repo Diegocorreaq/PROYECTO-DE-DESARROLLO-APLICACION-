@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.consorcio.dao.JuegosRepository;
 import com.consorcio.dao.UsuarioPorRoles;
 import com.consorcio.entity.Usuario;
 
