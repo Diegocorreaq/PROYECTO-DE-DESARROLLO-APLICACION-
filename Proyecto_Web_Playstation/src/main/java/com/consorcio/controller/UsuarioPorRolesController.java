@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.consorcio.entity.Rol;
 import com.consorcio.entity.Usuario;
+import com.consorcio.services.RolService;
 import com.consorcio.services.UsuarioPorRolesService;
 
 
@@ -19,13 +20,15 @@ public class UsuarioPorRolesController {
 	
 	@Autowired
 	private UsuarioPorRolesService usuarioPorRolesService;
+	@Autowired
+	private RolService rolService;
 	
 	
 	@RequestMapping("/")
 	public String index(Model model) {
 		//crear atributos
 		model.addAttribute("usuarioPorRoles",usuarioPorRolesService.listarTodos());
-		
+		model.addAttribute("roles",rolService.listarTodos());
 		return "UsuarioPorRoles";
 	}
 	
@@ -36,7 +39,6 @@ public class UsuarioPorRolesController {
 		
 		try {
 			Usuario u= new Usuario();
-		u.setCodigo(cod);
 		u.setLogin(log);
 		u.setClave(cla);
 		u.setNombre(nom);
@@ -51,11 +53,11 @@ public class UsuarioPorRolesController {
 			//validar cod
 			if(cod==0) {
 				usuarioPorRolesService.guardar(u);
-				redirect.addFlashAttribute("MENSAJE", "Proveedor registrado correctamente");
+				redirect.addFlashAttribute("MENSAJE", "Usuario registrado correctamente");
 			}else {
 				u.setCodigo(cod);
 				usuarioPorRolesService.guardar(u);
-					redirect.addFlashAttribute("MENSAJE", "Proveedor Actualizado correctamente");
+					redirect.addFlashAttribute("MENSAJE", "Usuario Actualizado correctamente");
 			}
 			
 			

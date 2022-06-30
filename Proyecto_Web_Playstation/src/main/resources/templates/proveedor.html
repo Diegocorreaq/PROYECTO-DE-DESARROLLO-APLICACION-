@@ -5,6 +5,8 @@
 <title>Proveedores</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+    <link rel="icon" href="/img/logopng.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <link rel="stylesheet" th:href="@{/resources/datepicker/bootstrap-datepicker.css}">
 <link rel="stylesheet" th:href="@{/resources/alertifyjs/css/alertify.css}">
@@ -12,6 +14,16 @@
 
 
 <style>
+body{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("/img/wallpaper.png.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
 	.modal-header, h4, .close {
 		background-color: #286090;
 		color: white !important;
@@ -98,7 +110,7 @@
 		
 			<h3 class="text-center mt-4">Lista de Proveedores</h3>
 			
-			<button type="button" class="btn btn-dark mt-5" data-toggle="modal" data-target="#modalProveedores" id="btn-nuevo">
+			<button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#modalProveedores" id="btn-nuevo">
 			 <i class="far fa-file"></i> Nuevo Proveedor
 			</button>
 			<div class=" mt-2">

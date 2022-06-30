@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteBoleta_byNum" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfa87128-3d50-4afd-bdcf-50dd51c27a13">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="juegos.nombre" class="java.lang.String"/>
+	<field name="juegos.codigo" class="java.lang.Integer"/>
+	<field name="boleta.numeroBoleta" class="java.lang.String"/>
+	<field name="boleta.cliente.codigo" class="java.lang.Integer"/>
+	<field name="boleta.cliente.nombre" class="java.lang.String"/>
+	<field name="boleta.cliente.paterno" class="java.lang.String"/>
+	<field name="boleta.cliente.materno" class="java.lang.String"/>
+	<field name="boleta.usuario.apellido" class="java.lang.String"/>
+	<field name="boleta.usuario.nombre" class="java.lang.String"/>
+	<field name="boleta.fechaEmision" class="java.lang.String"/>
+	<field name="precio" class="java.lang.Double"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<variable name="boleta.numeroBoleta1" class="java.lang.Integer" resetType="Group" resetGroup="DetalleBoleta" calculation="Count">
+		<variableExpression><![CDATA[$F{boleta.numeroBoleta}]]></variableExpression>
+	</variable>
+	<variable name="datosUsuario" class="java.lang.String">
+		<initialValueExpression><![CDATA[$F{boleta.usuario.nombre}+" "+$F{boleta.usuario.apellido}]]></initialValueExpression>
+	</variable>
+	<variable name="importe" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{precio}*$F{cantidad}]]></variableExpression>
+	</variable>
+	<variable name="datosCliente" class="java.lang.String">
+		<initialValueExpression><![CDATA[$F{boleta.cliente.nombre}+" "+$F{boleta.cliente.paterno}+" "+$F{boleta.cliente.materno}]]></initialValueExpression>
+	</variable>
+	<group name="DetalleBoleta">
+		<groupExpression><![CDATA[$F{boleta.numeroBoleta}]]></groupExpression>
+		<groupHeader>
+			<band height="151">
+				<staticText>
+					<reportElement x="310" y="122" width="64" height="16" uuid="ea4b63c4-eac2-4176-87c9-9bb33dbd75cf"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[PRECIO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="80" y="120" width="100" height="21" uuid="b4d4ca86-4fa2-427c-a999-932f9b8a26d6"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOMBRE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="-10" y="120" width="80" height="20" uuid="cc96b7d2-a5b5-413a-93b6-7aa03173bf76"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CÓDIGO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="380" y="120" width="76" height="16" uuid="4f65d646-3fcd-44f5-93e5-bfc44cac024f"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CANTIDAD]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="460" y="120" width="76" height="16" uuid="7c25d8a5-e60d-4488-9b34-3b384f072679"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[IMPORTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="-10" y="50" width="71" height="17" uuid="d561e49b-f985-4ff3-911b-05ea6466dc18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CLIENTE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="-10" y="80" width="71" height="17" uuid="9d9e00ed-4f6b-44f0-8cf1-f98349e81a2b"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[USUARIO:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="80" width="71" height="17" uuid="92be370b-771f-4c53-8079-55ab23839526"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[FECHA:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="380" y="52" width="80" height="25" uuid="94b040f1-783b-4907-9930-80cf14ecd76c"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[NUMERO]]></text>
+				</staticText>
+				<line>
+					<reportElement x="-20" y="110" width="595" height="1" uuid="0b9bff3e-a619-427f-99db-c4f864e5d4b5"/>
+				</line>
+				<line>
+					<reportElement x="-20" y="150" width="595" height="1" uuid="ebcddf37-7d2c-442c-9528-5372ce91da10"/>
+				</line>
+				<textField>
+					<reportElement x="470" y="52" width="90" height="13" uuid="606a3b88-fedc-4921-b586-7cc9b2b9f879"/>
+					<textFieldExpression><![CDATA[$F{boleta.numeroBoleta}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="80" width="100" height="17" uuid="4f1a9740-4e6e-4a87-8ac0-f511a353612f"/>
+					<textFieldExpression><![CDATA[$V{datosCliente}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="50" width="100" height="17" uuid="a1b7f4ec-8297-4584-8e47-d4d57dedcfb2"/>
+					<textFieldExpression><![CDATA[$V{datosUsuario}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="-10" y="-40" width="555" height="60" forecolor="#FF0000" backcolor="#FF0000" uuid="887204c4-a7c1-43ff-8ff8-02cf72d22194"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="150" y="-20" width="340" height="30" uuid="fda9f044-6fa3-4971-8abb-1325a7e0e096"/>
+					<textElement>
+						<font size="20"/>
+					</textElement>
+					<text><![CDATA[REPORTE DE BOLETA]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="132" splitType="Stretch">
+			<textField>
+				<reportElement x="-11" y="10" width="81" height="20" uuid="2e5f74c8-578c-466b-a93f-db087da2a6e9"/>
+				<textFieldExpression><![CDATA[$F{juegos.codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="10" width="100" height="20" uuid="fad1b2f4-3eca-476f-bdc2-ef3dfb38e238"/>
+				<textFieldExpression><![CDATA[$F{juegos.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="10" width="70" height="20" uuid="4c0eb1af-6b36-445a-8c4f-3badbd28e360"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="10" width="76" height="20" uuid="ee98f389-0eae-4e8e-915b-e41d3a536233"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="10" width="76" height="20" uuid="36d2c9ea-3a13-4220-9f40-ac26ceaeb5ce"/>
+				<textFieldExpression><![CDATA[$V{importe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
