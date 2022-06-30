@@ -27,7 +27,7 @@ public class UsuarioController {
 	
 	@RequestMapping("/login")
 	public String index() {
-		return "sesion";
+		return "playstatio";
 		
 	}
 	@RequestMapping("/intranet")

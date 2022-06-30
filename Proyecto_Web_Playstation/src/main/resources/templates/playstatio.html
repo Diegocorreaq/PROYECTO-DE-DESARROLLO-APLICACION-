@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/logopng.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <title>Playstation</title>
+</head>
+<style>body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("/img/fondo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+.container_form{
+    background-color:  #0a1e35;
+    border-radius: 15px;
+    padding: 40px;
+    opacity: 0.8;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: 160px;
+}
+h2{
+    text-align: center;
+    color: white;
+}
+input{
+    display: block;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+    border-bottom: 2px solid white;
+}
+.check{
+    width: 15px;
+    height: 15px;
+    display: inline;
+   
+}
+label{
+    color: white;
+}
+a{
+    color: white;
+    text-decoration: none;
+    margin-left: 120px;
+}
+
+.boton{
+
+    width: 150px;
+    border-radius: 15px;
+    background-color:#048620;
+    color: white;
+    margin-top: 30px;
+    border: none;
+    border-bottom: 4px solid #0b5a1c;
+    margin-left: 145px;
+}
+a:hover{
+    color: #b8b8b8b8;
+}
+label:hover{
+    color: #b8b8b8b8;
+}
+.boton:active{
+    background-color: #0b5a1c;
+    width: 145px;
+}</style>
+<body>
+    <div class="container">
+        <div class="container_form">
+            <h2> Iniciar Session</h2>
+            <img th:src="@{/img/logopng.png}">
+                 <form  method="post" th:action="@{/login}">
+                <div class="alert alert-danger" th:if="${param.error}">Usuario y/o clave incorrectos</div>
+				<div class="alert alert-success" th:if="${param.logout}">Sesion terminada</div>
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" name="" placeholder="Password" required>
+                <input type="checkbox" class="check" id="checkid">
+                <label for="checkid"> Recuerdame</label>
+                <a href="#">Olvidaste tu contraseña?</a>
+                <input type="submit" class="boton" value="Iniciar">
+
+            </form>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
