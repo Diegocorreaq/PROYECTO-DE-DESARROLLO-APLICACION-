@@ -54,7 +54,7 @@ public class UsuarioController {
 			u.setClave(passwordEncoder.encode(pass));
 			//
 			Rol r= new Rol();
-			r.setCodigo(1);
+			r.setCodigo(4);
 			u.setRol(r);
 			
 			//validar cod

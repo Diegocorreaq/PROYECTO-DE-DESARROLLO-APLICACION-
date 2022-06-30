@@ -35,9 +35,9 @@
 }
 
 img{
-    width: 100px;
-    height: 100px;
-    margin-left: 160px;
+    width: 250px;
+    height: 150px;
+    margin-left: 80px;
 }
 h2{
     text-align: center;
@@ -96,14 +96,15 @@ label:hover{
     <div class="container">
         <div class="container_form">
             <h2> Crear Cuenta</h2>
-            <img th:src="@{/img/logopng.png}">
+            <img th:src="@{/img/PlayStation-logo.png}">
                  <form  method="post" th:action="@{guardar}">
 				 <input type="hidden" id="idCodigo" name="codigo" value="0">
                 <input type="text" name="nombre" placeholder="Nombres" required>
                 <input type="text" name="apellido" placeholder="Apellidos" required>
                 <input type="text" name="nomusu" placeholder="Nombre de Usuario" required>
                  <input type="password" name="contraseña" placeholder="Contraseña" required>
-              <br>
+               <br>
+                <a href="/login/" style="float: right;">¿Ya está registrado? Inicie sesión aquí</a>
                 <input type="submit" class="boton" value="Iniciar">
 
             </form>
