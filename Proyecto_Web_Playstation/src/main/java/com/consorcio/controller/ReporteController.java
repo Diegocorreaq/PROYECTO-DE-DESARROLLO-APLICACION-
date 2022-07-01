@@ -68,7 +68,7 @@ public class ReporteController {
 		try {
 			
 			List<JuegosHasBoleta> lista=boletaService.findDetalleBoletaPorNumero(num);
-			File file=ResourceUtils.getFile("classpath:reporte_boleta_por_numero.jrxml");
+			File file=ResourceUtils.getFile("classpath:reporteBoleta_byNum.jrxml");
 			JasperReport jasper=JasperCompileManager.compileReport(file.getAbsolutePath());
 			JRBeanCollectionDataSource origen=new JRBeanCollectionDataSource(lista);
 			JasperPrint jasperPrint=JasperFillManager.fillReport(jasper,null,origen);

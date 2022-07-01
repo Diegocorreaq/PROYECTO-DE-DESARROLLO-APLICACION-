@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.consorcio.entity.Cliente;
 import com.consorcio.services.ClienteService;
 @Controller
-@RequestMapping("/cliente")
+@RequestMapping("/Cliente")
 public class ClienteController {
 	@Autowired
 	private ClienteService clienteService;
@@ -59,7 +59,7 @@ public class ClienteController {
 			redirect.addFlashAttribute("MENSAJE","Error al guardar juego");
 		e.printStackTrace();
 		}
-		return "redirect:/cliente/";
+		return "redirect:/Cliente/";
 		
 	}
 	@RequestMapping("/buscar")
@@ -79,7 +79,7 @@ public class ClienteController {
 			redirect.addFlashAttribute("MENSAJE", "Error en la eliminacion del juego ");
 			e.printStackTrace();
 		}
-		return "redirect:/cliente/";
+		return "redirect:/Cliente/";
 	}
 
 
