@@ -27,7 +27,7 @@
 			</staticText>
 			<image>
 				<reportElement x="502" y="5" width="108" height="55" uuid="a58d5f4d-8d62-4aa2-a865-1b6c6ef2de82"/>
-				<imageExpression><![CDATA["C:/Users/ADMIN/Desktop/carpetas/PlayStation-logo - copia.png"]]></imageExpression>
+				<imageExpression>"static/img/logoplaypdf.png"</imageExpression>
 			</image>
 		</band>
 	</title>

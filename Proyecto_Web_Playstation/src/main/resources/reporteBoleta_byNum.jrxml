@@ -119,8 +119,8 @@
 					<text><![CDATA[REPORTE DE BOLETA]]></text>
 				</staticText>
 				<image>
-					<reportElement x="470" y="-40" width="75" height="60" uuid="c553d024-d0c1-472b-8025-5f01101e027f"/>
-					<imageExpression><![CDATA["C:/Users/ADMIN/Desktop/carpetas/PlayStation-logo - copia.png"]]></imageExpression>
+					<reportElement x="470" y="-40" width="80" height="70" uuid="c553d024-d0c1-472b-8025-5f01101e027f"/>
+					<imageExpression>"static/img/logoplaypdf.png"</imageExpression>
 				</image>
 				<textField>
 					<reportElement x="460" y="52" width="100" height="24" uuid="53b5a5b9-16ee-4833-9997-6f03b5ae74ab"/>

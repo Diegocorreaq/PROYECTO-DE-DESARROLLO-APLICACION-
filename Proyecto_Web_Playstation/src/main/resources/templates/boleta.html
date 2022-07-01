@@ -315,7 +315,6 @@ $(document).on("click",".btn-adicionar",function(){
 	//leer caja
 	can=$("#idCantidad").val();
 	$("#tableDetalle tbody").empty();
-	
 	$.get("adicionar?codigo="+cod+"&nombre="+nom+"&cantidad="+can+"&precio="+prec,function(response){
 			$.each(response,function(index,item){
 				suma+=item.importe;
