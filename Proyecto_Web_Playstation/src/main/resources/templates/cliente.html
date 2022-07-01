@@ -2,16 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Proveedores</title>
+<title>Juegos</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
-
-    <link rel="icon" href="/img/logopng.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <link rel="stylesheet" th:href="@{/resources/datepicker/bootstrap-datepicker.css}">
 <link rel="stylesheet" th:href="@{/resources/alertifyjs/css/alertify.css}">
 <link rel="stylesheet" th:href="@{/resources/alertifyjs/css/alertify.min.css}"> 
-
+    <link rel="icon" href="/img/logopng.png">
 
 <style>
 body{
@@ -108,32 +106,28 @@ body{
 	
 	<div class="container">
 		
-			<h3 class="text-center mt-4">Lista de Proveedores</h3>
-			
-			<button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#modalProveedores" id="btn-nuevo">
-			 <i class="far fa-file"></i> Nuevo Proveedor
+			<h3 class="text-center mt-4">LISTA DE CLIENTES</h3>
+	<div class="mt-8">
+			<button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#modalMedicamento" id="btn-nuevo">
+			 <i class="far fa-file"></i> Nuevo Cliente
 			</button>
 			<div class=" mt-2">
 	
-				<table class="table table-dark table-striped table-bordered mt-5" id="tableProveedores">
+				<table class="table table-dark table-striped table-bordered mt-5" id="tableMedicamentos">
 							  <thead>
 							   <tr>
-					                <th>codigo</th>
+					                <th>Codigo</th>
 					                <th>Nombre</th>
-					                <th>Apellido Paterno</th>
-					                <th>Apellido Materno</th>
+					                <th>Apellidos</th>
 					                <th>Sexo</th>
 					                <th>Dni</th>
-					                <th>Fecha</th>
+					                <th>Fecha de Nacimiento</th>
 					                <th>Celular</th>
 					                <th>Direccion</th>
-					               <th>Distrito</th>
-					                <th></th>
-					                <th></th>
 					            </tr>
 							  </thead>
 							  <tbody>
-								<tr th:each="bean:${proveedor}">
+								<tr th:each="bean:${clientes}">
 							   		  <td th:text="${bean.codigo}"></td>
 								      <td th:text="${bean.nombre}"></td>
 								      <td th:text="${bean.paterno}"></td>
@@ -141,10 +135,9 @@ body{
 								      <td th:text="${bean.sexo}"></td>
 								      <td th:text="${bean.dni}"></td>
 								      <td th:text="${bean.fechaNacimiento}"></td>
-								      <td th:text="${bean.celular}">
+								      <td th:text="${bean.celular}"></td>
 								      <td th:text="${bean.direccion}"></td>
-								      <td th:text="${bean.distrito}"></td>
-							      <td><a class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalProveedores"><i class="far fa-edit"></i></a></td>
+							      <td><a class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalMedicamento"><i class="far fa-edit"></i></a></td>
 							      <td><a class="btn btn-danger btn-eliminar"><i class="far fa-trash-alt"></i></a></td>
 							    </tr>  
 							  </tbody>
@@ -153,83 +146,72 @@ body{
 		
 		
 			<!-- begin #modal-dialog : MODAL MEDICAMENTO-->
-			<div class="modal fade" id="modalProveedores" data-backdrop="static" 
+			<div class="modal fade" id="modalMedicamento" data-backdrop="static" 
 							data-keyboard="false" tabindex="-1" 
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered modal-login modal-lg" >					
 							<div class="modal-content">
 								<div class="modal-header bg-blue-darker">
-									<h4 class="modal-title text-white">Proveedor</h4>
+									<h4 class="modal-title text-white">Clientes</h4>
 								</div>
 								<div class="modal-body">
-									<form method="POST" id="idRegistra" th:action="@{/proveedor/guardar}">	
+									<form method="POST" id="idRegistra" th:action="@{/Cliente/guardar}" >	
 										<input type="hidden" id="idCodigo" name="codigo" value="0">
 										<div class="container">
 											<div class="row">
-												<div class="form-group has-feedback col-md-4">
+												<div class="form-group has-feedback col-md-12">
 														<label for="exampleInputEmail1"><b>Nombre</b></label><br>		
 														<i class="fas fa-file-signature form-control-feedback2"></i>	
 														<input type="text" class="form-control" id="idNombre" placeholder="Ingresar nombre" name="nombre">																										
 												</div>
-												<div class="form-group has-feedback col-md-4">
-														<label for="exampleInputEmail1"><b>Apellido Paterno</b></label><br>
-														<i class="fas fa-file-signature form-control-feedback2"></i>
-														<input type="text" class="form-control" id="idApellidoP" placeholder="Ingresar Apellido" name="paterno">												
+												<div class="form-group has-feedback col-md-12">
+														<label for="exampleInputEmail1"><b>Paterno</b></label><br>
+														<textarea class="form-control" id="idPaterno" rows="6"  name="paterno"
+																					   placeholder="Ingresar  Apellido Paterno" style="padding-left: 5px!important;"></textarea>												
 												</div>
 												<div class="form-group has-feedback col-md-4">
-													<label for="exampleInputEmail1"><b>Apellido Materno</b></label><br>	
-													<i class="fas fa-file-signature form-control-feedback2"></i>
-													<input type="text" class="form-control" id="idApellidoM" placeholder="Ingresar Apellido" name="materno">	
+													<label for="exampleInputEmail1"><b>Materno</b></label><br>	
+													<i class="fas fa-pen-fancy form-control-feedback2"></i>
+													<input type="text" class="form-control" id="idMaterno" placeholder="Ingresar Apellido Materno" name="materno">	
 												</div>
+												<div class="form-group has-feedback col-md-6">	
+														<label for="exampleInputEmail1"><b>Sexo</b></label><br>
+												        <i class="fas fa-prescription-bottle-alt form-control-feedback2"></i>
+													    <select class="form-control" name="sexo" id="idSexo">
+													      <option value="-1">[Seleccione Sexo]</option>
+													      <option value="Masculino">Masculino</option>
+													      <option value="Femenino">Femenino</option>														      />
+													    </select>
+													   
+												 </div>
 												<div class="form-group has-feedback col-md-4">
-													<label for="exampleInputEmail1"><b>Sexo</b></label><br>
-		 											<i class="fas fa-file-signature form-control-feedback2"></i>
-													<input type="text" class="form-control" id="idSexo" placeholder="Ingresar Sexo" name="sexo">														
+													<label for="exampleInputEmail1"><b>DNI</b></label><br>
+													<i class="fas fa-money-check-alt form-control-feedback2"></i>
+													<input type="text" class="form-control" id="idDni" placeholder="Ingresar Dni" name="dni">														
 												</div>
 											    <div class="form-group has-feedback col-md-4">	
-													<label for="exampleInputEmail1" class="text-center"><b>DNI</b></label><br>
-												    <i class="fas fa-file-signature form-control-feedback2"></i>
-												    <input type="text" style="background-color:#aed6f1" class="form-control" id="idDni"
-												    													  name="dni" placeholder="Ingresar DNI">
-							
-											    </div>
-											      <div class="form-group has-feedback col-md-4">	
 													<label for="exampleInputEmail1" class="text-center"><b>Fecha Nacimiento</b></label><br>
 												    <i class="fas fa-calendar-week form-control-feedback2"></i>
 												    <input type="text" style="background-color:#aed6f1" class="form-control" id="usr1"
-												    													  name="fechaNacimiento" placeholder="YYYY-MM-DD" autocomplete="off" >
+												    													  name="fechaNac" placeholder="YYYY-MM-DD" autocomplete="off" >
 							
 											    </div>
-											      <div class="form-group has-feedback col-md-4">	
-													<label for="exampleInputEmail1" class="text-center"><b>Celular</b></label><br>
-												   <!-- <i class="fas fa-file-signature form-control-feedback2"></i>-->	
-												    <i class="bi bi-123"></i>
-												    <input type="text" style="background-color:#aed6f1" class="form-control" id="idCelular"
-												    													  name="celular" placeholder="Ingresar Celular">
-							
-											    </div>
-											      <div class="form-group has-feedback col-md-4">	
-													<label for="exampleInputEmail1" class="text-center"><b>Direccion</b></label><br>
-												    <i class="fas fa-file-signature form-control-feedback2"></i>
-												    <input type="text" style="background-color:#aed6f1" class="form-control" id="idDir"
-												    													  name="direccion" placeholder="Ingresar Direccion">
-							
-											    </div>
-											      <div class="form-group has-feedback col-md-4">	
-													<label for="exampleInputEmail1" class="text-center"><b>Distrito</b></label><br>
-												    <i class="fas fa-file-signature form-control-feedback2"></i>
-												    <input type="text" style="background-color:#aed6f1" class="form-control" id="idDis"
-												    													  name="distrito" placeholder="Ingresar Distrito">
-							
-											    </div>
-											  
-													   
-												 </div>
-											
-											
+											    <div class="form-group has-feedback col-md-4">
+													<label for="exampleInputEmail1"><b>Celular</b></label><br>	
+													<i class="fas fa-pen-fancy form-control-feedback2"></i>
+													<input type="number" size="9" class="form-control" id="idCelular" placeholder="Ingresar Celular" name="celular">	
+												</div>
+												<div class="form-group has-feedback col-md-4">
+													<label for="exampleInputEmail1"><b>Direccion</b></label><br>	
+													<i class="fas fa-pen-fancy form-control-feedback2"></i>
+													<input type="text" class="form-control" id="idDireccion" placeholder="Ingresar Direccion" name="direccion">	
+												</div>
+												
+											    
+											</div>
 										</div>								
 										<div class="col-md-12 text-center mt-4"> 										
-											<button type="submit" id="Guardar" class="btn btn-success"> <i class="fas fa-save"></i> Registrar</button>
+											<button type="submit" id="Guardar" class="btn btn-primary"><i class="fas fa-save"></i> Registrar</button>
 											<button type="button" id="btn-cerrar" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-undo-alt"></i> Cancelar</button>
 										</div> 																								
 									</form>
@@ -268,7 +250,7 @@ body{
 	
 	
 	<script>
-		$('#tableProveedores').DataTable();
+		$('#tableMedicamentos').DataTable();
 		$(function() {
 			$('#usr1').datepicker({
 				'format': 'yyyy-mm-dd',
@@ -284,22 +266,19 @@ body{
 //asignar evento click al boton con btn-editar
 	$(document).on('click','.btn-editar', function() {
 		    let cod;	
-//obtener codigo del proveedor segun el botonn editar que se pulso
+//obtener codigo del medicamento segun el botonn editar que se pulso
 		cod=$(this).parents("tr").find("td")[0].innerHTML;		
 		$.get("buscar?codigo="+cod,function(response){	
 		$("#idCodigo").val(response.codigo)
 		$("#idNombre").val(response.nombre)
-		$("#idApellidoP").val(response.paterno)
-		$("#idApellidoM").val(response.materno)
+		$("#idPaterno").val(response.paterno)
+		$("#idMaterno").val(response.materno)
 		$("#idSexo").val(response.sexo)
 		$("#idDni").val(response.dni)
 		$("#usr1").val(response.fechaNacimiento)
 		$("#idCelular").val(response.celular)
-		$("#idDir").val(response.direccion)
-		$("#idDis").val(response.distrito)
+		$("#idDireccion").val(response.direccion)
 		console.log(response)
-
-
 
 			})
 	});
@@ -408,6 +387,26 @@ body{
 	        });   				
 	    });    
 	</script>   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 </body>

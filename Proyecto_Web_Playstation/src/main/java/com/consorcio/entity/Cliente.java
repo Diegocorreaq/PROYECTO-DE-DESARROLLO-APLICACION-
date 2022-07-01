@@ -40,8 +40,7 @@ public class Cliente implements Serializable{
 	private int celular;
 	@Column(name = "dir_cli")
 	private String direccion;
-	@Column(name = "cod_dis")
-	private int distrito;
+	
 
 	
 	//Relación UNO a MUCHOS "Boleta"
@@ -150,15 +149,6 @@ public class Cliente implements Serializable{
 		this.direccion = direccion;
 	}
 
-
-	public int getDistrito() {
-		return distrito;
-	}
-
-
-	public void setDistrito(int distrito) {
-		this.distrito = distrito;
-	}
 
 
 	public List<Boleta> getListaBoletas() {

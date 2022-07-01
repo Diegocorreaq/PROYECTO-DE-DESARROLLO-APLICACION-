@@ -19,6 +19,20 @@ public class ClienteService {
 		return repo.listAllByApellido(ape);
 		
 	}
+
+	public void guardar(Cliente bean) {
+		repo.save(bean);
+	}
+	public void eliminar (int cod) {
+		repo.deleteById(cod);
+			}
+	public Cliente buscar (int cod) {
+		return repo.findById(cod).orElse(null);
+	}
+	public List<Cliente>listarTodos(){
+		return repo.findAll();
+		
+	}
 	
 	
 }
