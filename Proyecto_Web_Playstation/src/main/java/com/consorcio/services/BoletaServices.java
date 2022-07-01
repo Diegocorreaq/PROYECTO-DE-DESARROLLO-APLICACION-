@@ -55,6 +55,9 @@ public class BoletaServices {
 	public List<JuegosHasBoleta> findDetalleBoletaPorNumero(int num){
 		return repo.buscarDetalleBoletaPorNumero(num);
 	}
+	public List<Boleta> listarTodos(){
+		return repo.findAll();
+	}
 	
 	
 

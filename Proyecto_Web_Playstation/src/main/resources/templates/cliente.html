@@ -124,14 +124,15 @@ body{
 					                <th>Fecha de Nacimiento</th>
 					                <th>Celular</th>
 					                <th>Direccion</th>
+					                <th></th>
+					                <th></th>
 					            </tr>
 							  </thead>
 							  <tbody>
 								<tr th:each="bean:${clientes}">
 							   		  <td th:text="${bean.codigo}"></td>
 								      <td th:text="${bean.nombre}"></td>
-								      <td th:text="${bean.paterno}"></td>
-								      <td th:text="${bean.materno}"></td>
+								      <td th:text="${bean.paterno +' '+bean.materno}"></td>
 								      <td th:text="${bean.sexo}"></td>
 								      <td th:text="${bean.dni}"></td>
 								      <td th:text="${bean.fechaNacimiento}"></td>
@@ -159,24 +160,25 @@ body{
 										<input type="hidden" id="idCodigo" name="codigo" value="0">
 										<div class="container">
 											<div class="row">
-												<div class="form-group has-feedback col-md-12">
+												<div class="form-group has-feedback col-md-8">
 														<label for="exampleInputEmail1"><b>Nombre</b></label><br>		
 														<i class="fas fa-file-signature form-control-feedback2"></i>	
 														<input type="text" class="form-control" id="idNombre" placeholder="Ingresar nombre" name="nombre">																										
 												</div>
-												<div class="form-group has-feedback col-md-12">
+												<div class="form-group has-feedback col-md-4">
 														<label for="exampleInputEmail1"><b>Paterno</b></label><br>
-														<textarea class="form-control" id="idPaterno" rows="6"  name="paterno"
-																					   placeholder="Ingresar  Apellido Paterno" style="padding-left: 5px!important;"></textarea>												
+														<i class="fas fa-file-signature form-control-feedback2"></i>	
+														<input type="text" class="form-control" id="idPaterno" placeholder="Ingresar  Apellido Paterno" name="paterno">	
+																									
 												</div>
 												<div class="form-group has-feedback col-md-4">
-													<label for="exampleInputEmail1"><b>Materno</b></label><br>	
-													<i class="fas fa-pen-fancy form-control-feedback2"></i>
-													<input type="text" class="form-control" id="idMaterno" placeholder="Ingresar Apellido Materno" name="materno">	
+													<label for="exampleInputEmail1"><b>Materno</b></label><br>
+													<i class="fas fa-file-signature form-control-feedback2"></i>	
+														<input type="text" class="form-control" id="idMaterno" placeholder="Ingresar Apellido Materno" name="materno">		
 												</div>
 												<div class="form-group has-feedback col-md-6">	
 														<label for="exampleInputEmail1"><b>Sexo</b></label><br>
-												        <i class="fas fa-prescription-bottle-alt form-control-feedback2"></i>
+												       <i class="fas fa-file-signature form-control-feedback2"></i>
 													    <select class="form-control" name="sexo" id="idSexo">
 													      <option value="-1">[Seleccione Sexo]</option>
 													      <option value="Masculino">Masculino</option>
@@ -187,7 +189,7 @@ body{
 												<div class="form-group has-feedback col-md-4">
 													<label for="exampleInputEmail1"><b>DNI</b></label><br>
 													<i class="fas fa-money-check-alt form-control-feedback2"></i>
-													<input type="text" class="form-control" id="idDni" placeholder="Ingresar Dni" name="dni">														
+													<input type="number" maxlength="8"  class="form-control" id="idDni" placeholder="Ingresar Dni" name="dni">														
 												</div>
 											    <div class="form-group has-feedback col-md-4">	
 													<label for="exampleInputEmail1" class="text-center"><b>Fecha Nacimiento</b></label><br>
@@ -199,9 +201,9 @@ body{
 											    <div class="form-group has-feedback col-md-4">
 													<label for="exampleInputEmail1"><b>Celular</b></label><br>	
 													<i class="fas fa-pen-fancy form-control-feedback2"></i>
-													<input type="number" size="9" class="form-control" id="idCelular" placeholder="Ingresar Celular" name="celular">	
+													<input type="number" maxlength="9" class="form-control" id="idCelular" placeholder="Ingresar Celular" name="celular">	
 												</div>
-												<div class="form-group has-feedback col-md-4">
+												<div class="form-group has-feedback col-md-12">
 													<label for="exampleInputEmail1"><b>Direccion</b></label><br>	
 													<i class="fas fa-pen-fancy form-control-feedback2"></i>
 													<input type="text" class="form-control" id="idDireccion" placeholder="Ingresar Direccion" name="direccion">	

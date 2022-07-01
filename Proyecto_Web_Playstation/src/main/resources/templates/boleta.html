@@ -6,7 +6,11 @@
 <title>Boleta</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
-    <link rel="icon" href="/img/logopng.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<link rel="stylesheet" th:href="@{/resources/datepicker/bootstrap-datepicker.css}">
+<link rel="stylesheet" th:href="@{/resources/alertifyjs/css/alertify.css}">
+<link rel="stylesheet" th:href="@{/resources/alertifyjs/css/alertify.min.css}"> 
+   <link rel="icon" href="/img/logopng.png">
 <style type="text/css">
 body{
 	margin: 0;
@@ -46,10 +50,50 @@ body{
 <!--consumir fragmento cabecera-->
 	<div th:insert="plantilla/UITemplate :: cabecera"> </div>
 	<div class="container">
+	
+	
+	
+	<h3 class="text-center mt-4">LISTA DE BOLETA</h3>
+	<div class="mt-8">
+			<button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#modalMedicamento" id="btn-nuevo">
+			 <i class="far fa-file"></i> Nueva Boleta
+			</button>
+			 
+			<div class=" mt-2">
+	
+				<table class="table table-dark table-striped table-bordered mt-5" id="tableMedicamentos">
+							  <thead>
+							   <tr>
+					                <th>Codigo</th>
+					                <th>Cliente</th>
+					                <th>Fecha</th>
+					                <th>Monto</th>
+					                <th></th>
+					            </tr>
+							  </thead>
+							  <tbody>
+								<tr th:each="bean:${boletas}">
+							   		  <td th:text="${bean.numeroBoleta}"></td>
+								      <td th:text="${bean.cliente.nombre}"></td>
+								      <td th:text="${bean.fechaEmision}"></td>
+								      <td th:text="${bean.monto}"></td>
+							      <td><a class="btn btn-danger btn-reporte"><i class="fa-solid fa-file-chart-column">Reporte</i></a></td>
+							    </tr>  
+							  </tbody>
+				</table>
+			</div>
+		
+	
+	
+	
+	
+	
 		<div class="mt-4">
 		</div>	
 		<!-- begin #modal-dialog : MODAL GENERAR NUEVO REQUERIMIENTO-->
-		<div>
+		<div class="modal fade" id="modalMedicamento" data-backdrop="static" 
+							data-keyboard="false" tabindex="-1" 
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg" >					
 							<div class="modal-content">
 								<div class="modal-header bg-blue-darker">
@@ -211,7 +255,7 @@ body{
 
 <script>
 $(document).ready(function() {
-	
+		$('#tableMedicamentos').DataTable();
 } );
 function cargarRequerimientos(){
 	
@@ -271,6 +315,7 @@ $(document).on("click",".btn-adicionar",function(){
 	//leer caja
 	can=$("#idCantidad").val();
 	$("#tableDetalle tbody").empty();
+	
 	$.get("adicionar?codigo="+cod+"&nombre="+nom+"&cantidad="+can+"&precio="+prec,function(response){
 			$.each(response,function(index,item){
 				suma+=item.importe;
@@ -305,7 +350,14 @@ $(document).on("click",".btn-eliminar-detalle",function(){
 
 })
  
+$(document).on("click",".btn-reporte",function(){
+		let cod;
+	
+	cod=$(this).parents("tr").find("td")[0].innerHTML;
+	window.open("http://localhost:8096/reporte/reporteBoletaPorNumero?numero="+cod);
+	
 
+})
 
 </script>
 </body>

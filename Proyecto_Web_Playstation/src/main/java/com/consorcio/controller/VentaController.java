@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.consorcio.entity.Boleta;
 import com.consorcio.entity.Cliente;
@@ -41,6 +42,7 @@ public class VentaController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("juegos",juegoServicio.listarTodos());
+		model.addAttribute("boletas",bolServicio.listarTodos());
 		return "boleta";
 		
 	}
@@ -98,14 +100,16 @@ public class VentaController {
 	}
 	
 	@RequestMapping("/grabar")
-	public String grabar(@RequestParam("codigoCliente") int codCli,@RequestParam("fecha") String fec,HttpSession session,@SessionAttribute("CODIGOUSUARIO")int codUsuario)
+	public String grabar(@RequestParam("codigoCliente") int codCli,@RequestParam("fecha") String fec,HttpSession session,
+			@SessionAttribute("CODIGOUSUARIO")int codUsuario,
+			 @RequestParam("total") double totalPagar,RedirectAttributes redirect)
 	{
 		try {
 			Boleta bol= new Boleta();
 			bol.setFechaEmision(LocalDate.parse(fec));
 			bol.setCliente(new Cliente(codCli));
 			bol.setUsuario(new Usuario(codUsuario));
-			bol.setMonto(2500);
+			bol.setMonto(totalPagar);
 			List<Detalle> lista=(List<Detalle>) session.getAttribute("detalle");
 			//Crear un arreglko de la clase juego
 			List<JuegosHasBoleta> data= new ArrayList<JuegosHasBoleta>();
@@ -114,17 +118,22 @@ public class VentaController {
 				JuegosHasBoleta jhb= new JuegosHasBoleta();
 				jhb.setJuegos(new Juegos(d.getCodigo()));
 				jhb.setCantidad(d.getCantidad());
-				jhb.setPrecio(10);
+				jhb.setPrecio(d.getPrecio());
 				data.add(jhb);
 				
 			}
 			bol.setListaJuegosHasBoleta(data);
 			bolServicio.grabarBoleta(bol);
+			//limpiar detalle
+			lista.clear();
+			session.setAttribute("detalle", lista);
+			//
+			redirect.addFlashAttribute("MENSAJE","Boleta registrada");
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
+			redirect.addFlashAttribute("MENSAJE","Error en la boleta");
 		}
 		
 		return "redirect:/ventas/";

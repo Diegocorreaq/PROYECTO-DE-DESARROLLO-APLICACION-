@@ -7,7 +7,7 @@
 	</queryString>
 	<field name="juegos.nombre" class="java.lang.String"/>
 	<field name="juegos.codigo" class="java.lang.Integer"/>
-	<field name="boleta.numeroBoleta" class="java.lang.String"/>
+	<field name="boleta.numeroBoleta" class="java.lang.Integer"/>
 	<field name="boleta.cliente.codigo" class="java.lang.Integer"/>
 	<field name="boleta.cliente.nombre" class="java.lang.String"/>
 	<field name="boleta.cliente.paterno" class="java.lang.String"/>
@@ -17,6 +17,7 @@
 	<field name="boleta.fechaEmision" class="java.lang.String"/>
 	<field name="precio" class="java.lang.Double"/>
 	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="boleta.monto" class="java.lang.Double"/>
 	<variable name="boleta.numeroBoleta1" class="java.lang.Integer" resetType="Group" resetGroup="DetalleBoleta" calculation="Count">
 		<variableExpression><![CDATA[$F{boleta.numeroBoleta}]]></variableExpression>
 	</variable>
@@ -32,58 +33,61 @@
 	<group name="DetalleBoleta">
 		<groupExpression><![CDATA[$F{boleta.numeroBoleta}]]></groupExpression>
 		<groupHeader>
-			<band height="151">
+			<band height="153">
+				<rectangle>
+					<reportElement x="10" y="120" width="525" height="21" forecolor="#000000" backcolor="#2E6DB4" uuid="ec1604f1-a4b7-4393-b56b-8885c54c1564"/>
+				</rectangle>
 				<staticText>
-					<reportElement x="310" y="122" width="64" height="16" uuid="ea4b63c4-eac2-4176-87c9-9bb33dbd75cf"/>
-					<textElement>
+					<reportElement x="300" y="120" width="74" height="20" forecolor="#FFFFFF" uuid="ea4b63c4-eac2-4176-87c9-9bb33dbd75cf"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[PRECIO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="80" y="120" width="100" height="21" uuid="b4d4ca86-4fa2-427c-a999-932f9b8a26d6"/>
-					<textElement>
+					<reportElement x="100" y="120" width="180" height="21" forecolor="#FFFFFF" uuid="b4d4ca86-4fa2-427c-a999-932f9b8a26d6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[NOMBRE]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="-10" y="120" width="80" height="20" uuid="cc96b7d2-a5b5-413a-93b6-7aa03173bf76"/>
-					<textElement>
+					<reportElement x="20" y="120" width="80" height="20" forecolor="#FFFFFF" uuid="cc96b7d2-a5b5-413a-93b6-7aa03173bf76"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[CÓDIGO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="380" y="120" width="76" height="16" uuid="4f65d646-3fcd-44f5-93e5-bfc44cac024f"/>
-					<textElement>
+					<reportElement x="380" y="120" width="76" height="20" forecolor="#FFFFFF" uuid="4f65d646-3fcd-44f5-93e5-bfc44cac024f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[CANTIDAD]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="460" y="120" width="76" height="16" uuid="7c25d8a5-e60d-4488-9b34-3b384f072679"/>
-					<textElement>
+					<reportElement x="460" y="120" width="76" height="20" forecolor="#FFFFFF" uuid="7c25d8a5-e60d-4488-9b34-3b384f072679"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[IMPORTE]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="-10" y="50" width="71" height="17" uuid="d561e49b-f985-4ff3-911b-05ea6466dc18"/>
+					<reportElement x="10" y="50" width="71" height="17" uuid="d561e49b-f985-4ff3-911b-05ea6466dc18"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[CLIENTE:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="-10" y="80" width="71" height="17" uuid="9d9e00ed-4f6b-44f0-8cf1-f98349e81a2b"/>
+					<reportElement x="9" y="80" width="71" height="17" uuid="9d9e00ed-4f6b-44f0-8cf1-f98349e81a2b"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[USUARIO:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="320" y="80" width="71" height="17" uuid="92be370b-771f-4c53-8079-55ab23839526"/>
+					<reportElement x="360" y="80" width="71" height="17" uuid="92be370b-771f-4c53-8079-55ab23839526"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -92,42 +96,52 @@
 				<staticText>
 					<reportElement x="380" y="52" width="80" height="25" uuid="94b040f1-783b-4907-9930-80cf14ecd76c"/>
 					<textElement>
-						<font fontName="Arial" size="14" isBold="true"/>
+						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[NUMERO]]></text>
 				</staticText>
-				<line>
-					<reportElement x="-20" y="110" width="595" height="1" uuid="0b9bff3e-a619-427f-99db-c4f864e5d4b5"/>
-				</line>
-				<line>
-					<reportElement x="-20" y="150" width="595" height="1" uuid="ebcddf37-7d2c-442c-9528-5372ce91da10"/>
-				</line>
 				<textField>
-					<reportElement x="470" y="52" width="90" height="13" uuid="606a3b88-fedc-4921-b586-7cc9b2b9f879"/>
-					<textFieldExpression><![CDATA[$F{boleta.numeroBoleta}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="80" y="80" width="100" height="17" uuid="4f1a9740-4e6e-4a87-8ac0-f511a353612f"/>
+					<reportElement x="110" y="50" width="100" height="17" uuid="4f1a9740-4e6e-4a87-8ac0-f511a353612f"/>
 					<textFieldExpression><![CDATA[$V{datosCliente}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="80" y="50" width="100" height="17" uuid="a1b7f4ec-8297-4584-8e47-d4d57dedcfb2"/>
+					<reportElement x="110" y="80" width="100" height="17" uuid="a1b7f4ec-8297-4584-8e47-d4d57dedcfb2"/>
 					<textFieldExpression><![CDATA[$V{datosUsuario}]]></textFieldExpression>
 				</textField>
 				<rectangle>
-					<reportElement x="-10" y="-40" width="555" height="60" forecolor="#FF0000" backcolor="#FF0000" uuid="887204c4-a7c1-43ff-8ff8-02cf72d22194"/>
+					<reportElement x="9" y="-40" width="461" height="60" forecolor="#000000" backcolor="#2E6DB4" uuid="887204c4-a7c1-43ff-8ff8-02cf72d22194"/>
 				</rectangle>
 				<staticText>
-					<reportElement x="150" y="-20" width="340" height="30" uuid="fda9f044-6fa3-4971-8abb-1325a7e0e096"/>
+					<reportElement x="100" y="-20" width="340" height="30" forecolor="#FFFFFF" uuid="fda9f044-6fa3-4971-8abb-1325a7e0e096"/>
 					<textElement>
 						<font size="20"/>
 					</textElement>
 					<text><![CDATA[REPORTE DE BOLETA]]></text>
 				</staticText>
+				<image>
+					<reportElement x="470" y="-40" width="75" height="60" uuid="c553d024-d0c1-472b-8025-5f01101e027f"/>
+					<imageExpression><![CDATA["C:/Users/ADMIN/Desktop/carpetas/PlayStation-logo - copia.png"]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="460" y="52" width="100" height="24" uuid="53b5a5b9-16ee-4833-9997-6f03b5ae74ab"/>
+					<textFieldExpression><![CDATA[$F{boleta.numeroBoleta}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="50"/>
+			<band height="33">
+				<line>
+					<reportElement x="0" y="0" width="544" height="1" uuid="9f581c46-e607-4c73-9103-acff890ca266"/>
+				</line>
+				<textField>
+					<reportElement x="460" y="0" width="74" height="20" uuid="0a4f365b-07a2-4d8f-baff-189190a37464"/>
+					<textFieldExpression><![CDATA[$F{boleta.monto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="410" y="0" width="50" height="20" uuid="d78aaaed-8557-4beb-9ba7-74f9fb57f629"/>
+					<text><![CDATA[TOTAL:]]></text>
+				</staticText>
+			</band>
 		</groupFooter>
 	</group>
 	<background>
@@ -143,17 +157,17 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="132" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<textField>
-				<reportElement x="-11" y="10" width="81" height="20" uuid="2e5f74c8-578c-466b-a93f-db087da2a6e9"/>
+				<reportElement x="20" y="10" width="81" height="20" uuid="2e5f74c8-578c-466b-a93f-db087da2a6e9"/>
 				<textFieldExpression><![CDATA[$F{juegos.codigo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="10" width="100" height="20" uuid="fad1b2f4-3eca-476f-bdc2-ef3dfb38e238"/>
+				<reportElement x="100" y="10" width="180" height="20" uuid="fad1b2f4-3eca-476f-bdc2-ef3dfb38e238"/>
 				<textFieldExpression><![CDATA[$F{juegos.nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="310" y="10" width="70" height="20" uuid="4c0eb1af-6b36-445a-8c4f-3badbd28e360"/>
+				<reportElement x="300" y="10" width="80" height="20" uuid="4c0eb1af-6b36-445a-8c4f-3badbd28e360"/>
 				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
 			</textField>
 			<textField>
