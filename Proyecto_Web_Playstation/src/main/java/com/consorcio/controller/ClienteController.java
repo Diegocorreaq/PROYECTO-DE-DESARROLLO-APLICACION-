@@ -12,16 +12,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.consorcio.entity.Cliente;
 import com.consorcio.services.ClienteService;
-import com.consorcio.services.ProveedorService;
-
 @Controller
-@RequestMapping("/Cliente")
-public class ProveedorController {
-	
+@RequestMapping("/cliente")
+public class ClienteController {
 	@Autowired
 	private ClienteService clienteService;
-	
-	
 	
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -29,7 +24,6 @@ public class ProveedorController {
 		model.addAttribute("clientes",clienteService.listarTodos());
 		return "cliente";
 	}
-	
 	@RequestMapping("/guardar")
 	public String guardar(@RequestParam("codigo")int cod,@RequestParam("nombre")String nom,@RequestParam("paterno")String pat,
 			@RequestParam("materno")String mater,@RequestParam("sexo")String sexo,@RequestParam("dni")int dni,
@@ -87,5 +81,6 @@ public class ProveedorController {
 		}
 		return "redirect:/cliente/";
 	}
+
 
 }

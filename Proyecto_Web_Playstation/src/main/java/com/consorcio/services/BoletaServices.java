@@ -1,5 +1,7 @@
 package com.consorcio.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,12 @@ public class BoletaServices {
 		}
 		
 		
+	}
+	public Boleta findBoletaPorNumero(int num) {
+		return repo.buscarBoletaPorNumero(num);
+	}
+	public List<JuegosHasBoleta> findDetalleBoletaPorNumero(int num){
+		return repo.buscarDetalleBoletaPorNumero(num);
 	}
 	
 	

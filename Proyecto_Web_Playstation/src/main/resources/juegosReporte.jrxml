@@ -16,7 +16,7 @@
 	<title>
 		<band height="72" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="500" height="60" forecolor="#000000" backcolor="#1F69B8" uuid="266b09c7-5988-445f-888e-960efc4a952e"/>
+				<reportElement x="0" y="0" width="500" height="60" forecolor="#000000" backcolor="#000000" uuid="266b09c7-5988-445f-888e-960efc4a952e"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="120" y="17" width="340" height="30" forecolor="#FFFFFF" uuid="a6a63707-84c8-46b4-af33-994609aed2ae"/>
@@ -27,7 +27,7 @@
 			</staticText>
 			<image>
 				<reportElement x="502" y="5" width="108" height="55" uuid="a58d5f4d-8d62-4aa2-a865-1b6c6ef2de82"/>
-				<imageExpression><![CDATA["C:/Users/ADMIN/Desktop/Cibertec Ciclo 6/DESARROLLO DE APLICACIONES WEB I/PROYECTO/PROYECTO FINAL/PlayStationJuegosTienda/Proyecto_Web_Playstation/src/main/resources/static/img/logopng.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:/Users/ADMIN/Desktop/carpetas/PlayStation-logo - copia.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -37,7 +37,7 @@
 	<columnHeader>
 		<band height="27" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="555" height="20" forecolor="#000000" backcolor="#1F69B8" uuid="41c8d306-37e7-425f-85c6-d6855d6b2ad8"/>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#000000" backcolor="#000000" uuid="41c8d306-37e7-425f-85c6-d6855d6b2ad8"/>
 			</rectangle>
 			<line>
 				<reportElement x="0" y="20" width="555" height="1" forecolor="#000000" backcolor="#000000" uuid="b6be54b9-0f27-4bc3-85b3-9d9e3d4d5d1d"/>
