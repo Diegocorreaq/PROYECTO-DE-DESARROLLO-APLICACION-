@@ -40,6 +40,10 @@ body{
 		max-width: 1200px;
 		max-height: 600px;
 	}
+	.modal-sm, .modal-xl {
+		max-width: 3000px;
+		max-height: 600px;
+	}
 	.dataTables_length,.dataTables_info{
 	display: none;
 	}   
@@ -189,10 +193,10 @@ body{
 		</div>
 		<!-- FIN Modal -->		
 			<!-- begin #modal-dialog : MODAL CLIENTE-->
-			<div class="modal fade modal-lg" id="modalCliente" data-backdrop="static" 
+			<div class="modal fade modal-sm" id="modalCliente" data-backdrop="static" 
 							data-keyboard="false" tabindex="-1" 
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" >					
+						<div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" >					
 							<div class="modal-content">
 								<div class="modal-header bg-blue-darker">
 									<h4 class="modal-title text-white">Cliente</h4>
@@ -213,12 +217,12 @@ body{
 													<table id="tableClientes" class="table table-striped table-bordered mt-3">
 												        <thead>
 												            <tr>
-												                <th width="5%">Codigo</th>
+												                <th width="95%">Codigo</th>
 												                <th width="95%">Nombres</th>
 																<th width="95%">Paterno</th>
 																<th width="95%">Materno</th>
 																<th width="95%">Sexo</th>
-												                <th></th>
+												                <th ></th>
 												            </tr>
 												        </thead>
 												        <tbody>
