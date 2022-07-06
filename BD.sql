@@ -54,7 +54,7 @@ CREATE TABLE tb_enlace (
 -- Dumping data for table `tb_enlace`
 --
 
-INSERT INTO tb_enlace VALUES (1,'Juegos','/juegos/'),(2,'Usuario','/UsuarioPorRoles/'),(3,'Proveedor','/proveedor/'),(4,'Empleado','registroEmpleado.jsf'),(5,'Boleta','/ventas/');
+INSERT INTO tb_enlace VALUES (1,'Juegos','/juegos/'),(2,'Usuario','/UsuarioPorRoles/'),(3,'Cliente','/Cliente/'),(4,'Boleta','/ventas/');
 
 --
 -- Table structure for table `tb_rol`
@@ -71,7 +71,7 @@ CREATE TABLE tb_rol (
 --
 -- Dumping data for table `tb_rol`
 --
-INSERT INTO tb_rol VALUES (1,'Administrador'),(2,'Caja'),(3,'Contabilidad');
+INSERT INTO tb_rol VALUES (1,'Administrador'),(2,'Caja'),(3,'Contabilidad'),(4,'Pediente de Rol'),(5,'Jefe de Tienda');
 
 
 --
@@ -92,12 +92,12 @@ CREATE TABLE tb_rol_enlace (
 --
 -- Dumping data for table `tb_rol_enlace`
 --
-INSERT INTO tb_rol_enlace VALUES (1,1),(2,1),(1,2),(3,2),(1,3),(1,4),(1,5),(2,5);
+INSERT INTO tb_rol_enlace VALUES (1,1),(1,2),(1,3),(1,4),(2,3),(2,4),(3,1),(3,3),(5,1),(5,3),(5,4);
 
 
 DROP TABLE IF EXISTS tb_usuario;
 CREATE TABLE tb_usuario (
-  cod_usu int(11) NOT NULL,
+  cod_usu int(11) NOT NULL auto_increment,
   login varchar(45) DEFAULT NULL,
   password varchar(200) DEFAULT NULL,
   idrol int(11) DEFAULT NULL,
@@ -110,6 +110,7 @@ CREATE TABLE tb_usuario (
 --
 -- Dumping data for table `tb_usuario`
 --
+INSERT INTO tb_usuario VALUES (null,'diego','$2a$10$d4W10yYoDssOewZWLOpeU.dzttGkMWaJQtPfDt.OVTbd4Kr4yhXsy',1,'Diego','Correa');
 
 DROP TABLE IF EXISTS tb_cliente;
 
@@ -123,13 +124,16 @@ CREATE TABLE tb_cliente (
   fec_nac_cli date DEFAULT NULL,
   cel_cli int DEFAULT NULL,
   dir_cli varchar(50) DEFAULT NULL,
-  cod_dis int DEFAULT NULL,
   PRIMARY KEY (cod_cli)
 );
 
 --
 -- Dumping data for table `tb_cliente`
 --
+INSERT INTO `playstation_store`.`tb_cliente` (`cod_cli`, `nom_cli`, `pat_cli`, `mat_cli`, `sex_cli`, `dni_cli`, `fec_nac_cli`, `cel_cli`) VALUES ('2', 'Diego', 'Vidal', 'Sanchez', 'Femenino', '74805926', '2011-11-22', '984123698');
+INSERT INTO `playstation_store`.`tb_cliente` (`cod_cli`, `nom_cli`, `pat_cli`, `mat_cli`, `sex_cli`, `dni_cli`, `fec_nac_cli`, `cel_cli`) VALUES ('3', 'Santiago', 'Sanchez', 'Gonzales', 'Masculino', '12345678', '2010-11-22', '984123698');
+INSERT INTO `playstation_store`.`tb_cliente` (`cod_cli`, `nom_cli`, `pat_cli`, `mat_cli`, `sex_cli`, `dni_cli`, `fec_nac_cli`, `cel_cli`) VALUES ('4', 'Mario', 'Arquimedes', 'Ayala', 'Masculino', '25874136', '2010-11-22', '984123698');
+INSERT INTO `playstation_store`.`tb_cliente` (`cod_cli`, `nom_cli`, `pat_cli`, `mat_cli`, `sex_cli`, `dni_cli`, `fec_nac_cli`, `cel_cli`) VALUES ('5', 'Junior', 'Rodriguez', 'Yanez', 'Masculino', '25874963', '2010-11-22', '984123698');
 
 
 

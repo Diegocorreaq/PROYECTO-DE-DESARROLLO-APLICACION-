@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectoWebPlaystationApplication<Proyecto_Web_Playstation>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.consorcio.ProyectoWebPlaystationApplication",
+            "projectName": "Proyecto_Web_Playstation",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

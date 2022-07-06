@@ -62,7 +62,7 @@ public class UsuarioPorRolesController {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			redirect.addFlashAttribute("MENSAJE","Error al guardar Proveedor");
 		e.printStackTrace();
 		}
@@ -83,7 +83,7 @@ public class UsuarioPorRolesController {
 			redirect.addFlashAttribute("MENSAJE", "Usuario eliminado Correctamente");
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			redirect.addFlashAttribute("MENSAJE", "Error en la eliminacion del Usuario ");
 			e.printStackTrace();
 		}

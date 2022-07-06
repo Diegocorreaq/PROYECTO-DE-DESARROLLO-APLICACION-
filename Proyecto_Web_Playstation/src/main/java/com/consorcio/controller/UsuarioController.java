@@ -69,7 +69,7 @@ public class UsuarioController {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+		
 			redirect.addFlashAttribute("MENSAJE","Error al guardar juego");
 		e.printStackTrace();
 		}

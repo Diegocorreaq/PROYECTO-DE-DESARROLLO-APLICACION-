@@ -65,7 +65,7 @@ public class JuegosController {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			redirect.addFlashAttribute("MENSAJE","Error al guardar juego");
 		e.printStackTrace();
 		}
@@ -90,7 +90,7 @@ public class JuegosController {
 			redirect.addFlashAttribute("MENSAJE", "Juego eliminado Correctamente");
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			redirect.addFlashAttribute("MENSAJE", "Error en la eliminacion del juego ");
 			e.printStackTrace();
 		}
